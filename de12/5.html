@@ -1,0 +1,73 @@
+<code>
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+    <li style="background-color:#EFF;">import random</li>
+    <li style="background-color:#EEF;">import copy</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">print(<font style="color:brown;">"こんにちは"</font>)</li>
+    <li style="background-color:#EFF;">print(<font style="color:brown;">"これは、1対1で行うゲームです。まず先攻後攻を決めます。先攻から1から5の数字を選んでいき、先にすべて言い終わったほうの勝ちです。"</font>)</li>
+    <li style="background-color:#EEF;">print(<font style="color:brown;">"しかし、数字を選ぶ際、必ず相手より大きな数字を選ばなければなりません。自分の数字に相手より大きな数字がない場合パスになります。"</font>)</li>
+    <li style="background-color:#EFF;">print(<font style="color:brown;">"パスの場合は０を入力してください"</font>)</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">mochite_com=[1,2,3,4,5]</li>
+    <li style="background-color:#EFF;">mochite_pla=[1,2,3,4,5]</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">te_com=0</li>
+    <li style="background-color:#EEF;">te_player=0</li>
+    <li style="background-color:#EFF;">for i in range(1,20):</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print(i,<font style="color:brown;">"ターン"</font>)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# print(<font style="color:brown;">"c"</font>,mochite_com)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"p"</font>,mochite_pla)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;if te_com!=5:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;te_player = int(input(<font style="color:brown;">"数字を入れてください"</font>))</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if 0&lt;te_player &lt;= 4:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mochite_pla.remove(te_player)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#プレイヤーの手が4以下だったらコンピュータにその数字以上の手を出してほしい</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#コンピュータの持ち手から出す候補を作成（プレイヤーの出してより大きい）</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dasu_koho = copy.copy(mochite_com)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#出す候補のなかでプレイヤーの手より小さいものを削除</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for c in range(1, te_player+1):</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dasu_koho.remove(c)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#出す手の候補からランダムにコンピュータの手を選ぶ</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;te_com = random.choice(dasu_koho)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"COM"</font>, te_com)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#コンピュータが出した手をコンピュータの持ち手から削除</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mochite_com.remove(te_com)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"COMパス"</font>)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif te_player==0:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"Playerパス"</font>)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# コンピュータの手</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dasu_koho = copy.copy(mochite_com)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 出す手の候補からランダムにコンピュータの手を選ぶ</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;te_com = random.choice(dasu_koho)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"COM"</font>, te_com)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# コンピュータが出した手をコンピュータの持ち手から削除</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mochite_com.remove(te_com)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mochite_pla.remove(te_player)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#プレイヤーの手が５だったらパスしたい</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"COMパス"</font>)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"Playerパス"</font>)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#コンピュータの手</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dasu_koho = copy.copy(mochite_com)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 出す手の候補からランダムにコンピュータの手を選ぶ</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;te_com = random.choice(dasu_koho)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"COM"</font>, te_com)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# コンピュータが出した手をコンピュータの持ち手から削除</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mochite_com.remove(te_com)</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;if len(mochite_pla)==0:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"Playerの勝ち"</font>)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;elif len(mochite_com) == 0:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"COMの勝ち"</font>)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()</li>
+    </ol></code>
