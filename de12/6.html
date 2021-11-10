@@ -1,20 +1,26 @@
-<!DOCTYPE html>
-<html lang="jp">
-<head>
-    <!-- ⑥↓タイトルを変えてみよう -->  
-    <title>dot　６　プログラミング１</title>
-    <!-- ⑤スタイルシートの設定をしよう -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- h1.htmlからある行をコピペしてくればOK -->
-</head>
-<body>
-    <h2>dot　６　プログラミング１</h2>
-    <h3>groupwork</h3>
-    <div>
-        <b>「プログラミングでこんなことはできないか？」ということをグループで話し合う。</b><br>
-  　    <img src="./images/プログラム１/S__75833347.jpg" width="30%"><img src="./images/プログラム１/S__75833349.jpg" width="30%"> <img src="./images/プログラム１/S__75833350.jpg" width="30%"><br>
-  　    <b>「画像を自動サイズ変更」できるプログラム</b><br>
-    </div>
-  　<b>作成中</b>
-</body>
-</html>
+<code>
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+    <li style="background-color:#EFF;">import os</li>
+    <li style="background-color:#EEF;">from PIL import Image</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;"># ファイル名を宣言</li>
+    <li style="background-color:#EFF;">FromImgName = <font style="color:brown;">'img'</font></li>
+    <li style="background-color:#EEF;">ToImgName = <font style="color:brown;">'resize'</font></li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;"># imgフォルダ内の画像名をまとめて取得</li>
+    <li style="background-color:#EFF;">files = os.listdir(FromImgName)</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">def scale_to_width(img, width):  # アスペクト比を固定して、幅が指定した値になるようリサイズする。</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;height = round(img.height * width / img.width)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;return img.resize((width, height))</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;"># for文で画像サイズを一括変更</li>
+    <li style="background-color:#EEF;">for file in files:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;img = Image.open(os.path.join(FromImgName, file))  # 画像のパスを生成し、imgへ画像を格納</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;file_name = os.path.basename(file)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;img_resize = scale_to_width(img, 250)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;img_resize.save(<font style="color:brown;">'resize/img_resized_{}'</font>.format(file_name), quality=95)</li>
+    <li style="background-color:#EFF;"></li>
+    </ol></code>
