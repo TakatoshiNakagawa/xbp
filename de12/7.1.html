@@ -1,0 +1,121 @@
+<code>
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+    <li style="background-color:#EFF;">import pandas as pd # データ分析に用いるライブラリ</li>
+    <li style="background-color:#EEF;">import matplotlib.pyplot as plt # グラフ表示に用いるライブラリ</li>
+    <li style="background-color:#EFF;">pd.set_option(<font style="color:brown;">'display.unicode.east_asian_width'</font>, True) # 表示のずれを少し緩和</li>
+    <li style="background-color:#EEF;">plt.rcParams[<font style="color:brown;">'font.family'</font>] = <font style="color:brown;">'IPAexGothic'</font> # グラフ表示におけるフォントの指定</li>
+    <li style="background-color:#EFF;">data_path=<font style="color:brown;">"./data.csv"</font></li>
+    <li style="background-color:#EEF;">df_data = pd.read_csv(data_path, encoding=<font style="color:brown;">"utf-8-sig"</font>)</li>
+    <li style="background-color:#EFF;"># print(df_data[<font style="color:brown;">"合計時間"</font>].describe())</li>
+    <li style="background-color:#EEF;"># print(df_data.groupby([<font style="color:brown;">"間取り"</font>]).count())</li>
+    <li style="background-color:#EFF;">print(<font style="color:brown;">"物件数"</font>, len(df_data), <font style="color:brown;">"件"</font>)</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;"># 全体の相場を調べる---------------------------------------</li>
+    <li style="background-color:#EEF;">roomtype=input(<font style="color:brown;">"間取りを入力してください"</font>)</li>
+    <li style="background-color:#EFF;">mask = (df_data[<font style="color:brown;">"間取り"</font>] == roomtype)</li>
+    <li style="background-color:#EEF;">df_selected_roomtype=df_data[mask]</li>
+    <li style="background-color:#EFF;">print(<font style="color:brown;">"物件数"</font>,len(df_selected_roomtype))</li>
+    <li style="background-color:#EEF;"># pd.set_option(<font style="color:brown;">'display.max_columns'</font>, None)</li>
+    <li style="background-color:#EFF;"># # 駅、路線、家賃、名称、合計時間、URLを表示する</li>
+    <li style="background-color:#EEF;"># print(df_selected_roomtype[[<font style="color:brown;">"駅"</font>, <font style="color:brown;">"路線"</font>,<font style="color:brown;">"家賃"</font>, <font style="color:brown;">"名称"</font>, <font style="color:brown;">"合計時間"</font>, <font style="color:brown;">"URL"</font>]].sort_values(<font style="color:brown;">"家賃"</font>).to_string(index=False))</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">df_selected_roomtype.loc[:, <font style="color:brown;">"家賃"</font>].hist(range=(0,50),bins=40)</li>
+    <li style="background-color:#EFF;">plt.xlabel(roomtype+<font style="color:brown;">"家賃(万円)"</font>) # 横軸のラベル</li>
+    <li style="background-color:#EEF;">plt.ylabel(<font style="color:brown;">"件数"</font>) # 縦軸のラベル</li>
+    <li style="background-color:#EFF;">plt.xlim(0, 50)</li>
+    <li style="background-color:#EEF;">plt.title(roomtype+<font style="color:brown;">"家賃のヒストグラム"</font>) # グラフのタイトル</li>
+    <li style="background-color:#EFF;">plt.show()</li>
+    <li style="background-color:#EEF;"># -------------------------------------------------------------</li>
+    <li style="background-color:#EFF;"># 路線毎の相場 -------------------------------------</li>
+    <li style="background-color:#EEF;">axes = df_selected_roomtype.loc[:, <font style="color:brown;">"家賃"</font>].hist(by=df_selected_roomtype.loc[:, <font style="color:brown;">"路線"</font>],</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range=(0, 50), bins=30,</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;figsize=(14, 7),</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sharex=True, sharey=True)</li>
+    <li style="background-color:#EEF;">for ax in axes.reshape(-1):</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;ax.grid(b=True) # グリッドを表示</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;ax.set_xlabel(<font style="color:brown;">"家賃(万円)"</font>) # 横軸のラベル</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;ax.set_ylabel(<font style="color:brown;">"件数"</font>) # 縦軸のラベル</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# ax.set_ylim(0, 120) # 縦軸の目盛りの最小値と最大値の指定</li>
+    <li style="background-color:#EFF;">plt.suptitle(<font style="color:brown;">"路線ごとの"</font>+roomtype+<font style="color:brown;">"家賃のヒストグラム"</font>) # グラフ全体のタイトル</li>
+    <li style="background-color:#EEF;">plt.subplots_adjust(top=0.92, # グラフ位置の微調整</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hspace=0.3) # グラフ間の微調整</li>
+    <li style="background-color:#EEF;">plt.show()</li>
+    <li style="background-color:#EFF;"># ------------------------------------------------------</li>
+    <li style="background-color:#EEF;"># 希望家賃(万)</li>
+    <li style="background-color:#EFF;">rent_upper = int(input(<font style="color:brown;">"希望家賃の上限は？(万円)"</font>))</li>
+    <li style="background-color:#EEF;">rent_lower = int(input(<font style="color:brown;">"希望家賃の下限は？(万円)"</font>))</li>
+    <li style="background-color:#EFF;"># 家賃で絞り込む</li>
+    <li style="background-color:#EEF;">mask = (df_selected_roomtype[<font style="color:brown;">'家賃'</font>] &lt;= rent_upper) &amp; (df_selected_roomtype[<font style="color:brown;">'家賃'</font>] &gt;= rent_lower)</li>
+    <li style="background-color:#EFF;"># 絞った内容をfilter_dfに入れる</li>
+    <li style="background-color:#EEF;">filter_df = df_selected_roomtype[mask]</li>
+    <li style="background-color:#EFF;">print(<font style="color:brown;">"家賃で絞り込んだ結果"</font>, len(filter_df), <font style="color:brown;">"件"</font>)</li>
+    <li style="background-color:#EEF;"># 通勤・通学時間---------------------------------------------------</li>
+    <li style="background-color:#EFF;">filter_df.loc[:, <font style="color:brown;">"合計時間"</font>].hist(range=(0,120),bins=120)</li>
+    <li style="background-color:#EEF;">plt.xlabel(<font style="color:brown;">"通勤・通学時間(分)"</font>) # 横軸のラベル</li>
+    <li style="background-color:#EFF;">plt.ylabel(<font style="color:brown;">"件数"</font>) # 縦軸のラベル</li>
+    <li style="background-color:#EEF;">plt.xlim(0, 120)</li>
+    <li style="background-color:#EFF;">plt.title(str(rent_lower) + <font style="color:brown;">"-"</font> + str(rent_upper)+<font style="color:brown;">"万円の"</font>+roomtype+<font style="color:brown;">"：通勤・通学時間ヒストグラム"</font>) # グラフのタイトル</li>
+    <li style="background-color:#EEF;">plt.show()</li>
+    <li style="background-color:#EFF;">#----------------------------------------------------------</li>
+    <li style="background-color:#EEF;"># 通勤時間（分）</li>
+    <li style="background-color:#EFF;">commuting_time = float(input(<font style="color:brown;">"希望通勤時間上限は?(分)"</font>))</li>
+    <li style="background-color:#EEF;">mask = (filter_df[<font style="color:brown;">'合計時間'</font>] &lt;= commuting_time)</li>
+    <li style="background-color:#EFF;"># filter_dfをさらに合計時間で絞り込む(filter_dfを上書き)</li>
+    <li style="background-color:#EEF;">filter_df = filter_df[mask]</li>
+    <li style="background-color:#EFF;">print(<font style="color:brown;">"家賃,通勤・通学時間で絞り込んだ結果"</font>, len(filter_df), <font style="color:brown;">"件"</font>)</li>
+    <li style="background-color:#EEF;"># バスは使いますか?</li>
+    <li style="background-color:#EFF;">bus = input(<font style="color:brown;">'バスは使ってもいいですか？　y or n'</font>)</li>
+    <li style="background-color:#EEF;">if bus == <font style="color:brown;">'n'</font>:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# バスなしであれば、バスは0</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;bus_num = 0</li>
+    <li style="background-color:#EFF;">else:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# とりあえずありえない数字を入れておく</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;bus_num = 10000</li>
+    <li style="background-color:#EEF;">mask=(filter_df[<font style="color:brown;">'バス'</font>] &lt;= bus_num)</li>
+    <li style="background-color:#EFF;"># filter_dfをさらにバス有無で絞り込み</li>
+    <li style="background-color:#EEF;">filter_df = filter_df[mask]</li>
+    <li style="background-color:#EFF;">print(<font style="color:brown;">"家賃,通勤・通学時間、バス有無で絞り込んだ結果"</font>, len(filter_df), <font style="color:brown;">"件"</font>)</li>
+    <li style="background-color:#EEF;"># 条件にあう分件が多い駅top10を表示(書き方難しかった)</li>
+    <li style="background-color:#EFF;">filter_top10_df = filter_df.groupby([<font style="color:brown;">'駅'</font>])[<font style="color:brown;">'駅'</font>].count().sort_values(ascending=False).head(10)</li>
+    <li style="background-color:#EEF;"># 続けるかどうかのフラグ</li>
+    <li style="background-color:#EFF;">flag = True</li>
+    <li style="background-color:#EEF;">while (flag):</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">'あなたにおすすめの駅は'</font>)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print(filter_top10_df)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# 　条件に合致する物件数が多い上位10の駅を「おすすめ駅」とする</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# 絞り込んだ結果をさらに「おすすめ駅」で絞り込み(ここちょっと書き方難しい)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;mask = filter_df[<font style="color:brown;">'駅'</font>].isin(filter_top10_df.index)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# filter_dfからおすすめ駅に絞り込んだ結果をfilter_top10_station_dfに入れる</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;filter_top10_station_df = filter_df[mask]</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# filter_top10_station_df.loc[:, <font style="color:brown;">"家賃"</font>].hist(by=filter_top10_station_df.loc[:, <font style="color:brown;">"駅"</font>],range=(rent_lower,rent_upper),bins=10,figsize=(8, 8))</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# plt.show()</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# ヒストグラム-------------------------------------</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;axes = filter_top10_station_df.loc[:, <font style="color:brown;">"家賃"</font>].hist(by=filter_top10_station_df.loc[:, <font style="color:brown;">"駅"</font>],</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range=(rent_lower, rent_upper), bins=10,</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;figsize=(10, 8),</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sharex=True, sharey=True)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;for ax in axes.reshape(-1):</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ax.grid(b=True) # グリッドを表示</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ax.set_xlabel(<font style="color:brown;">"家賃(万円)"</font>) # 横軸のラベル</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ax.set_ylabel(<font style="color:brown;">"件数"</font>) # 縦軸のラベル</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;plt.suptitle(<font style="color:brown;">"おすすめ駅：家賃のヒストグラム（家賃制限内）"</font>) # グラフ全体のタイトル</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;plt.subplots_adjust(top=0.92, # グラフ位置の微調整</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hspace=0.3) # グラフ間の微調整</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;plt.show()</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# ------------------------------------------------------</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"おすすめ駅(10駅)物件数"</font>, len(filter_top10_station_df))</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;station = input(<font style="color:brown;">'駅名を入力してください'</font>)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# おすすめ駅Top10（filter_top10_station_df）から駅名で更に絞り込みfilter_selected_station_dfに入れる</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;mask = (filter_top10_station_df[<font style="color:brown;">'駅'</font>] == station)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;filter_selected_station_df = filter_top10_station_df[mask]</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(station + <font style="color:brown;">"の合致物件数"</font>, len(filter_selected_station_df), <font style="color:brown;">"件"</font>)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# 全件表示させるようにする</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;pd.set_option(<font style="color:brown;">'display.max_rows'</font>, None)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;pd.set_option(<font style="color:brown;">'display.max_columns'</font>, None)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# 選択した駅の駅、路線、家賃、名称、合計時間、URLを表示する</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print(filter_selected_station_df[[<font style="color:brown;">"駅"</font>, <font style="color:brown;">"路線"</font>,<font style="color:brown;">"家賃"</font>, <font style="color:brown;">"名称"</font>, <font style="color:brown;">"合計時間"</font>, <font style="color:brown;">"URL"</font>]].sort_values(<font style="color:brown;">"家賃"</font>).to_string(index=False))</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(<font style="color:brown;">"----------------------------------------------------------------"</font>)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;loop_input = input(<font style="color:brown;">"続けますか？ y or n"</font>)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;if loop_input == <font style="color:brown;">'n'</font>:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag = False</li>
+    </ol></code>
