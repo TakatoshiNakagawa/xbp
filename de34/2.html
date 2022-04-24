@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <title>デザイン演習Ⅲ・Ⅳ dot 2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div>
+        <h1>「光を操る」・「負、正の感情」</h1><br>
+        <a href="https://kuxbp.github.io/xbp/xbp2021/design_e34/02_manipulate_the_light.html" target="_blank">光を操る</a><br>
+        <h2>「プログラム」</h2><br>
+        <a href="https://qiita.com/doyodoyo/items/1cc581b32f1a4458c5f2" target="_blank">ArduinoでNeoPixelを動かす</a><br>
+        <a href="https://qiita.com/doyodoyo/private/efdfbe7402dc68aa2301" target="_blank">PeoPixelの色をランダム＆ゆるやかに変える</a><br>
+        <h3>「光るLEDのカラーをランダムで出力する」</h3><br>
+        <div>
+            <code>
+                <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+                <li style="background-color:#EFF;">#include &lt;Adafruit_NeoPixel.h&gt;</li>
+                <li style="background-color:#EEF;">#define PIN        9 // 信号用のピンを指定</li>
+                <li style="background-color:#EFF;">#define NUMPIXELS 5 // LEDの数を指定</li>
+                <li style="background-color:#EEF;">int brightness=50;//明るさ</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">void setup() {</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;pixels.begin(); // NeoPixel出力ピンの初期化</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;pixels.setBrightness(brightness);</li>
+                <li style="background-color:#EFF;">}</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">void loop() {</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;pixels.clear(); // すべてのLEDの色を0にセット</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;for(int i=0; i&lt;NUMPIXELS; i++) {</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int r=random(0,255);</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;int g=random(0,255);</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int b=random(0,255);</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.setPixelColor(i,pixels.Color(r,g,b));</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.show();</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;delay(1000);</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;}</li>
+                <li style="background-color:#EEF;">}</li>
+                <li style="background-color:#EFF;"></li>
+                </ol></code>
+            </div>
+        <h3>「光るLEDのカラーをランダムで出力する且つ、５つあるLEDライトをランダムで出力する<br>
+      （5つあるLEDをランダムで出力するので同じ個所が続けて光ることもある）」</h3><br>
+        <div>
+            <code>
+                <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+                <li style="background-color:#EFF;">#define PIN        9 // 信号用のピンを指定</li>
+                <li style="background-color:#EEF;">#define NUMPIXELS 5 // LEDの数を指定</li>
+                <li style="background-color:#EFF;">int brightness=50;//明るさ</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">void setup() {</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;pixels.begin(); // NeoPixel出力ピンの初期化</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;pixels.setBrightness(brightness);</li>
+                <li style="background-color:#EEF;">}</li>
+                <li style="background-color:#EFF;"></li>
+                <li style="background-color:#EEF;">void loop() {</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;pixels.clear(); // すべてのLEDの色を0にセット</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;for(int i=0; i&lt;NUMPIXELS; i++) {</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int r=random(0,255);</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;int g=random(0,255);</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int b=random(0,255);</li>
+                <li style="background-color:#EEF;"></li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;int p=random(0,5);</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.setPixelColor(p,pixels.Color(r,g,b));</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;pixels.show();</li>
+                <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;delay(1000);</li>
+                <li style="background-color:#EFF;">&nbsp;&nbsp;}</li>
+                <li style="background-color:#EEF;">}</li>
+                <li style="background-color:#EFF;"></li>
+                </ol></code>
+        </div> 
+        <h3>負、正の感情　グループワークのまとめ（ポストイットと説明）</h3>  
+        <div>
+            <h4>「ゴールを決めた時」の感情</h4><br>
+            感情を挙げた方のシチュエーション：サッカーをしている際にゴールを決めたとき。<br>
+            <img src="./images/負、正の感情/サッカー１.jpg" width="20%">
+            <img src="./images/負、正の感情/サッカー２.jpg" width="20%">
+            <img src="./images/負、正の感情/サッカー３.jpg" width="20%">
+            <img src="./images/負、正の感情/サッカー４.jpg" width="20%">
+            <img src="./images/負、正の感情/サッカー５.jpg" width="20%"><br>
+            説明：ゴールまでの過程があるから目標達成したときに集団としては「貢献できた」と感じる。一方、個人感で「うれしい」「満足」と感じることが大きい。<br>
+            <h4>「ゴールを決めた時」の感情POV</h4><br>
+            <img src="./images/負、正の感情/サッカーPOV.jpg" width="30%"><br>
+
+            <h4>「メイクとか髪とかなんか調子良い時」の感情</h4><br>
+            感情を挙げた方のシチュエーション：朝、家でメイクやヘアセットがうまくいったとき。学校に行くまでや日中などで崩れなかったとき。<br>
+            <img src="./images/負、正の感情/メイク１.jpg" width="20%">
+            <img src="./images/負、正の感情/メイク２.jpg" width="20%">
+            <img src="./images/負、正の感情/メイク３.jpg" width="20%">
+            <img src="./images/負、正の感情/メイク４.jpg" width="20%">
+            <img src="./images/負、正の感情/メイク５.jpg" width="20%">
+            <img src="./images/負、正の感情/メイク６.jpg" width="20%">
+            <img src="./images/負、正の感情/メイク７.jpg" width="20%">
+            <img src="./images/負、正の感情/メイク８.jpg" width="20%"><br>
+            説明：周りからの目やから普段から身なりを気にしているから調子の良い悪いに気が付く。調子がいい時はうれしい。<br>
+            <h4>「メイクとか髪とかなんか調子良い時」の感情POV</h4><br>
+            <img src="./images/負、正の感情/メイクPOV.jpg" width="30%"><br>
+
+            <h4>「人といて気まづいとき」の感情</h4><br>
+            感情を挙げた方のシチュエーション：初対面、あまり関わりがない人と交流するとき。<br>
+            <img src="./images/負、正の感情/気まずい１.jpg" width="20%">
+            <img src="./images/負、正の感情/気まずい２.jpg" width="20%">
+            <img src="./images/負、正の感情/気まずい３.jpg" width="20%">
+            <img src="./images/負、正の感情/気まずい４.jpg" width="20%">
+            <img src="./images/負、正の感情/気まずい５.jpg" width="20%">
+            <img src="./images/負、正の感情/気まずい６.jpg" width="20%">
+            <img src="./images/負、正の感情/気まずい７.jpg" width="20%">
+            <img src="./images/負、正の感情/気まずい８.jpg" width="20%">
+            <img src="./images/負、正の感情/気まずい９.jpg" width="20%"><br>
+            説明：仲がいい人とはならないが関わりがないやあまりないことから相手との「距離感がわからない」と感じる。また、「中途半端な対応をしてしまった」などを感じる。<br>
+            <h4>「人といて気まづいとき」の感情POV</h4><br>
+            <img src="./images/負、正の感情/気まずいPOV.jpg" width="30%"><br>
+
+        </div>
+
+
+
+        <a href="index.html">デザイン演習Ⅲ・Ⅳトップページ</a><br>
+        <a href="../index.html">XBPトップページ</a><br>
+    </div>
+
+</body>
