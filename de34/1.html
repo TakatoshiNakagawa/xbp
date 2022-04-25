@@ -13,7 +13,27 @@
         <a href="https://qiita.com/doyodoyo/items/6f860e3cad6b60aff509" target="_blank">Arduinoで明るさを測定</a><br>
         <h2>明るさセンサー(CdS)が暗さを感じるとLEDが光ることを考える。</h2><br>
         <h3>コード</h3><br>
-        <img src="./images/明るさセンサー(CdS)が暗さを感じるとLEDが光る.png" width="30%"><br>
+        <code>
+            <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+            <li style="background-color:#EFF;">void setup() {</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;// put your setup code here, to run once:</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;Serial.begin(9600);</li>
+            <li style="background-color:#EEF;">}</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">void loop() {</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;// put your main code here, to run repeatedly:</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;int val=0;</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;val=analogRead(1);</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;Serial.println(val);</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;delay(500);</li>
+            <li style="background-color:#EEF;">if(val&gt;200){</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(13,HIGH);</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;delay(500);</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(13,LOW);</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;delay(500);</li>
+            <li style="background-color:#EFF;">}</li>
+            <li style="background-color:#EEF;">}</li>
+            </ol></code>
 
         <a href="index.html">デザイン演習Ⅲ・Ⅳトップページ</a><br>
         <a href="../index.html">XBPトップページ</a><br>
