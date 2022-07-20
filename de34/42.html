@@ -38,9 +38,69 @@
             <li>歯数が少ない小さい歯車から歯数が多い大きい歯車を回すのは負荷が大きい</li>
             <li>ひとつの歯車に４つ以上歯車を組み合わせて歯車を回すと負荷が大きい</li>
         </ul>
-        <img src="/de34/images/最終課題/支柱設計１.jpg" width="30%"><img src="/de34/images/最終課題/支柱設計２.jpg" width="30%"><img src="/de34/images/最終課題/モーター設置設計.jpg" width="30%"><br>
-        <img src="/de34/images/最終課題/支柱１.jpg" width="30%"><img src="/de34/images/最終課題/支柱２.jpg" width="30%"><br>
-        <img src="/de34/images/最終課題/歯車噛み合い１.jpg" width="30%"><img src="/de34/images/最終課題/歯車噛み合い２.jpg" width="30%"><br>
+        <img src="/de34/images/最終課題/支柱設計１.jpg" width="30%"><img src="/de34/images/最終課題/支柱設計２.jpg" width="23%"><img src="/de34/images/最終課題/モーター設置設計.jpg" width="23%"><img src="/de34/images/最終課題/二段設計.jpg" width="23%"><br>
+        <img src="/de34/images/最終課題/支柱１.jpg" width="30%"><img src="/de34/images/最終課題/支柱２.jpg" width="23%"><img src="/de34/images/最終課題/３Dプリント板.jpg" width="23%"><img src="/de34/images/最終課題/カッティング.jpg" width="23%"><br>
+        <img src="/de34/images/最終課題/歯車噛み合い１.jpg" width="30%"><img src="/de34/images/最終課題/歯車噛み合い２.jpg" width="23%"><img src="/de34/images/最終課題/配置.jpg" width="23%"><br>
+        <h3>プログラミングコード</h3>
+        <code>
+            <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">// 音センサ（アナログ生値表示）</li>
+            <li style="background-color:#EFF;">const int DIR  = 8;</li>
+            <li style="background-color:#EEF;">const int STEP = 9;</li>
+            <li style="background-color:#EFF;">&nbsp;</li>
+            <li style="background-color:#EEF;">// ポート指定用変数設定</li>
+            <li style="background-color:#EFF;">int a0_in_port = A0;    // センサ デジタル情報入力</li>
+            <li style="background-color:#EEF;">&nbsp;</li>
+            <li style="background-color:#EFF;">// 受信データ用変数設定</li>
+            <li style="background-color:#EEF;">int a0_data;    // analogデータ用</li>
+            <li style="background-color:#EFF;">&nbsp;</li>
+            <li style="background-color:#EEF;">void setup() {</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;// put your setup code here, to run once:</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;// シリアルモニタ通信速度設定</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;Serial.begin(9600);  </li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;pinMode(DIR, OUTPUT);</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;pinMode(STEP, OUTPUT);</li>
+            <li style="background-color:#EEF;">}</li>
+            <li style="background-color:#EFF;">&nbsp;</li>
+            <li style="background-color:#EEF;">void loop() {</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;// put your main code here, to run repeatedly:</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;// 音センサからの情報取得</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;a0_data = analogRead(a0_in_port);   // アナログデータ</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;// シリアルモニタへ出力</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;Serial.println( a0_data ); </li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;if (a0_data&gt;500){</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;for (int i=0; i &lt;= 80000; i++){</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clockwise(900);</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;}</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;// 1m秒待機</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;delay(1);</li>
+            <li style="background-color:#EEF;">}</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">void clockwise(int delaytime){</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;digitalWrite(DIR, HIGH);//HIGHは時計回り</li>
+            <li style="background-color:#EFF;"></li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;digitalWrite(STEP, HIGH);</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;delayMicroseconds(delaytime);</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;digitalWrite(STEP, LOW);</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;delayMicroseconds(delaytime);</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">}</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">void counter_clockwise(int delaytime){</li>
+            <li style="background-color:#EEF;"></li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;digitalWrite(DIR, LOW);//はLOWは反時計回り</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;digitalWrite(STEP, HIGH);</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;delayMicroseconds(delaytime);</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;digitalWrite(STEP, LOW);</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;delayMicroseconds(delaytime);</li>
+            <li style="background-color:#EEF;">}</li>
+            </ol></code>
     </div>
     <h3>使用材料・機材・道具</h3>
     <div>
