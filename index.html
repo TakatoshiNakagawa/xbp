@@ -1,108 +1,21 @@
 <!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <mata http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="device-width, initial-scale=1.0">
-    <title>XBP Nakagawa HP</title>
-    <meta name="description" content="神奈川大学経営学部国際経営学科　X-Business program　student　nakagwa HP">
-    <link rel="stylesheet" href="css/style.css">
-
-</head>
-
-<body>
-    <!--
-        <logotohome>
-            <a href="index.html"><img src="images/0_XBlogo.png" alt=""></a>
-        </logotohome>
-    -->
-    
-    <header class="header w_inner">
-        <div class="logotohome">
-            <!--<img src="images/0_XBlogo.png" alt="XBP Nakagawa HP" width="5%">-->
-            <p>XBP Nakagawa HP</p>
+<html lang="jp">
+    <head>
+        <!-- ⑥↓タイトルを変えてみよう -->  
+        <title>ナカガワタHP</title>
+        <!-- ⑤スタイルシートの設定をしよう -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- h1.htmlからある行をコピペしてくればOK -->
+    </head>
+    <body>
+        <div>
+            <h1>"XBP"</h1>
+            <a href="./doyolab/index.html"><img src="./images/道用ゼミ.jpg" width="100%"alt="次へ"></a><br>
+            <a href="./de56/index.html"><img src="./images/デザイン演習Ⅴ・専門入門演習.jpg" width="100%"alt="次へ"></a><br>
+            <a href="./de34/index.html"><img src="./images/デザイン演習Ⅲ・Ⅳ.jpg" width="100%"alt="次へ"></a><br>
+            <a href="./de12/index.html"><img src="./images/デザイン演習Ⅰ・Ⅱ.jpg" width="100%"alt="次へ"></a><br>
+            <a href="./digi_fab/index.html"><img src="./images/デジタル・ファブリケーション.jpg" width="100%"alt="次へ"></a><br>
+            <a href="./HCD/index.html"><img src="./HCD　写真.jpg" width="100%"alt="次へ"></a><br>
         </div>
-        <nav>
-            <ul>
-                <p><a href="./de12/index.html">デザイン演習Ⅰ・Ⅱ</a></p>
-                <p><a href="./de34/index.html">デザイン演習Ⅲ・Ⅳ</a></p>
-                <p><a href="./de56/index.html">デザイン演習Ⅴ・Ⅵ</a></p>
-                <p><a href="./digi_fab/">digi_fab</a></p>
-                <p><a href="./HCD/index.html">HCD</a></p>
-                <p><a href="./ゼミ/index.html">ゼミ</a></p>
-            </ul>
-        </nav>
-    </header>
-    <div class="content">
-        <div class="padding">
-            <p style="color:white;">HELLO</p>
-        </div>
-    
-        <div id="1de12_img_box">
-            <img id="1de12_img" src="./images/1de12" style="width: 100%;"/> <!--初期画像を入れておくよ。置き換わる部分だよ-->
-        </div>
-    
-        <div id="1de12_img_padding" class="padding">
-            このエリアは画像を動かすためにスクロールされますが、重なっているので見えません。<br>
-            このサイズはJavaScriptで変わります。
-        </div>
-
-        <div class="padding">
-            <p style="color:white">next</p>
-        </div>
-    </div>
-    <!--
-    <footer class="footer">
-        <div class="copy">
-            &copy;2023 01
-        </div>
-    </footer>
-    -->
-    <script>
-        const SIZE = 80; // 枚数
-        var tmp = {};
-            function loadImageToTmp(){
-                for(var i=1;i<=SIZE;i++){
-                    const _i = i;
-                    const img = new Image();
-                    tmp[_i] = null;
-                    img.src = "1de12/img ("+_i+")"; // 連続するファイル名
-                    img.addEventListener("load",()=>{
-                        tmp[_i] = img;
-                    })
-                }
-            }
-        
-        const PX = 5; // 5px分の移動ごと画像を1枚進める   
-        const offset = $("#1de12_img_box").offset(); // 画像を入れるdiv要素(position:stickyでトップに来たら固定される)
-                    $(window).scroll(function() {
-                        const y = $(window).scrollTop();
-                        const dy = y - offset.top;
-                        if(offset.top<y&&y<offset.top+SIZE*PX){
-                            $("#1de12_img_box").css("top",0)
-                            const i = Math.floor(dy / PX);
-                            if(i<=0||i>=SIZE) return;
-                            if(tmp[i].src) image.src = tmp[i].src;
-                        }else if(y>=offset.top+SIZE*PX){
-                            $("#1de12_img_box").css("top","-"+(dy-SIZE*PX)); // スクロール分が終了したときに移動を始める
-                        }
-                    });
-        
-    </script>
-
-</body> 
-</html>
-<!--
-    <h1>XBP</h1>
-    <p>ナカガワのXBPポートフォリオ一覧</p>
-        <!--このようにするとコードとして認識されない。（メモができる）-->
-        <!--番号付きのリスト->
-
-    <a href="./de34/index.html"><img src="./de34/images/デザイン演習Ⅲ・Ⅳ.jpg" width="100%"alt="次へ"></a><br>
-    <a href="./de12/index.html"><img src="./S__78962693.jpg" width="100%"alt="次へ"></a><br>
-    <a href="./digi_fab/index.html"><img src="./S__74448908.jpg" width="100%"alt="次へ"></a><br>
-    <a href="./HCD/index.html"><img src="./HCD　写真.jpg" width="100%"alt="次へ"></a><br>
     </body>
-    </html>
--->
+</html>
