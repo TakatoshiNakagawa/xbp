@@ -1,30 +1,120 @@
-@charset "utf-8";
-/* 冒頭でimport */
-@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
-/* フォントを指定したいところで */
+@charset "UTF-8";
+    /* 冒頭でimport 
+    @import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
+    /* フォントを指定したいところで */
 
+.body {
+	font-family: 'Hiragino Kaku Gothic Pro','Meiryo',sans-serif;
+    font-size: 15px;
+    border-top: 10px solid #79a1b1 !important;
+}
+.a {
+    text-decoration: none!important;
+    color: #333;
+}
+.logotohome {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.logotohome img {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.header {
+    width: 1200px;
+    margin: 0 auto;
+    background: #222;
+}
+.header ul {
+    display: flex;
+}
+.header ul p {
+    width: 200px;
+    text-align: center;
+    /*border-right: 1px solid #ddd;*/
+}
+/*.header ul p:first-child {
+    border-left: 1px solid #ddd;
+}*/
+.header ul p a {
+   display: block;
+}
+
+
+
+
+.header_img {
+   text-align: center;
+   margin-bottom: 50px;
+}
+.header_img img {
+    display: inline-block;
+}
+/*
+.container_service .service_block {
+    display: flex;
+    justify-content: space-between;
+}
+.container_service .service {
+    width: 380px;
+}
+.container_service h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.container_service .service img {
+    margin-bottom: 20px;
+}
+.container_service .service .ttl {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.container_service .service .explain {
+    margin-bottom: 25px;
+}
+.container_service .service a {
+    background: #79a1b1;
+    color: #fff;
+    padding: 15px 20px 12px;
+}
+.footer {
+    margin-top: 40px;
+}
+.copy {
+    text-align: center;
+    background: #79a1b1;
+    color: #fff;
+    font-size: 12px;
+    padding: 7px 0 3px;
+}
+
+/*
 logo img{
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    object-fit: cover; /* 画像のトリミング */
+    object-fit: cover; /* 画像のトリミング 
 }
 
 logotohome img{
     border-radius: 70%;
     width: 70px;
     height: 70px;
-    object-fit: cover; /* 画像のトリミング */
+    object-fit: cover; /* 画像のトリミング 
 }
 
 
-
-/* ========== common ========== */
+/* ========== common ========== 
 html, body {
 	font-size: 16px;
 	font-family: sans-serif;
-	color: #393939;
+	color: #383838;
     margin-left: 15px;
     margin-bottom: 40px;
 	background: #efefef;
@@ -51,4 +141,4 @@ span.blackback{
     background: #393939;
     color: #efefef;
 }
-
+*/
