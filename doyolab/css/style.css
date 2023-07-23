@@ -590,13 +590,13 @@ header.sh .logo {
 .menu3 a {
 	background-position: 20px -120px;
 }
-/*menu4*/
+/*menu4       background-position: 20px -180px;*/
 .menu4 a {
-	background-position: 20px -180px;
+	background-position: 20px -120px;
 }
-/*menu5*/
+/*menu5       background-position: 20px -240px;*/
 .menu5 a {
-	background-position: 20px -240px;
+	background-position: 20px -120px;
 }
 /*PC用メニューを非表示にする*/
 #menubar {display: none;}
