@@ -160,7 +160,7 @@ header:hover #menubar li a span {
 	display: inline-block;
 	background-image: url(../images/icon.png);	/*背景画像の読み込み*/
 	background-repeat: no-repeat;
-	background-size: 60px 300px;	/*実際のアイコン画像（icon.png）全体の大きさの幅、高さのそれぞれ「半分」。解像度を高くするため半分の数字にしています。*/
+	background-size: 60px 300px;	/*実際のアイコン画像（）全体の大きさの幅、高さのそれぞれ「半分」。解像度を高くするため半分の数字にしています。*/
 }
 /*menu1*/
 .menu1 a {
@@ -176,11 +176,11 @@ header:hover #menubar li a span {
 }
 /*menu4*/
 .menu4 a {
-	background-position: 20px -160px;	/*背景画像の左から20px、上から-160px（上のmenu3の-100からアイコンの高さ分の60をずらした）の部分を読み込む指定*/
+	background-position: 20px -100px;	/*背景画像の左から20px、上から-160px（上のmenu3の-100からアイコンの高さ分の60をずらした）の部分を読み込む指定*/
 }
 /*menu5*/
 .menu5 a {
-	background-position: 20px -220px;	/*背景画像の左から20px、上から-220px（上のmenu1の-160からアイコンの高さ分の60をずらした）の部分を読み込む指定*/
+	background-position: 20px -100px;	/*背景画像の左から20px、上から-220px（上のmenu1の-160からアイコンの高さ分の60をずらした）の部分を読み込む指定*/
 }
 /*スマホ用メニューを表示させない*/
 #menubar-s {display: none;}

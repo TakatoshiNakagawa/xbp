@@ -8,6 +8,7 @@
 <meta name="description" content="ここにサイト説明を入れます">
 <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/print.css" media="print">
 <script src="js/openclose.js"></script>
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -20,30 +21,23 @@
 .menu5 a {background-position: -10px -490px;}
 </style>
 <![endif]-->
-<!--[if lt IE 10]>
-<style>
-.slide0,.slide1,.slide2,.slide3 {background: url(images/1.jpg) no-repeat center center;}
-</style>
-<![endif]-->
 </head>
 
-<body class="home">
+<body class="works">
 
 <div id="container">
 
 <!--PC用（801px以上端末）で表示させるブロック-->
 <header class="pc">
 
-	<h1 class="logo"><a href="index.html"><img src="images/doyolab.ico" alt="doyolab"></a></h1>
+	<h1 class="logo"><a href="index.html"><img src="images/doyolab.ico" alt="doyolab.ico"></a></h1>
 
 	<!--PC用（801px以上端末）メニュー-->
 	<nav id="menubar">
 	<ul>
-	<li class="menuimg menu1 current"><a href="index.html"><span>Home</span></a></li>
+	<li class="menuimg menu1"><a href="index.html"><span>Home</span></a></li>
 	<li class="menuimg menu2"><a href="subject.html"><span>Subject</span></a></li>
-	<li class="menuimg menu3"><a href="works.html"><span>Works</span></a></li>
-	<li class="menuimg menu4"><a href="note.html"><span>note</span></a></li>
-
+	<li class="menuimg menu3 current"><a href="works.html"><span>Works</span></a></li>
 	<!--
 	<li class="menuimg menu4"><a href="link.html"><span>Links</span></a></li>
 	<li class="menuimg menu5"><a href="contact.html"><span>Contact</span></a></li>
@@ -58,23 +52,22 @@
 	<li><a href="#"><img src="images/icon_youtube.png" alt="YouTube"></a></li>
 	</ul>
 	-->
+
 </header>
 <!--/.pc-->
 
 <!--小さな端末用（800px以下端末）で表示させるブロック-->
 <header class="sh">
 
-	<h1 class="logo"><a href="index.html"><img src="images/doyolab.ico" alt="doyolab"></a></h1>
+	<h1 class="logo"><a href="index.html"><img src="images/doyolab.ico" alt="doyolab.ico"></a></h1>
 
 	<!--小さな端末用（800px以下端末）メニュー-->
 	<div id="menubar-s">
 	<nav>
 	<ul>
-	<li class="menuimg menu1 current"><a href="index.html"><span>Home</span></a></li>
+	<li class="menuimg menu1"><a href="index.html"><span>Home</span></a></li>
 	<li class="menuimg menu2"><a href="subject.html"><span>Subject</span></a></li>
-	<li class="menuimg menu3"><a href="works.html"><span>Works</span></a></li>
-	<li class="menuimg menu4"><a href="note.html"><span>note</span></a></li>
-
+	<li class="menuimg menu3 current"><a href="works.html"><span>Works</span></a></li>
 	<!--
 	<li class="menuimg menu4"><a href="link.html"><span>Links</span></a></li>
 	<li class="menuimg menu5"><a href="contact.html"><span>Contact</span></a></li>
@@ -89,7 +82,6 @@
 	<li><a href="#"><img src="images/icon_youtube.png" alt="YouTube"></a></li>
 	</ul>
 	-->
-	
 	</div>
 	<!--/#menubar-s-->
 
@@ -100,58 +92,65 @@
 
 <div id="main">
 
-<span id="pagetop"></span>
+<article id="pagetop">
 
-<section id="new">
+<h2 class="title">note2<span>活動内容</span></h2>
 
-<h2>What's New</h2>
-<dl>
-<dt>2023/07/23</dt>
-<dd>第１３・１４回活動内容更新<span class="newicon">NEW</span></dd>
-<dt>2023/07/23</dt>
-<dd>上映会＆トークイベント　4/28、Reアクリルデザインアワード修正更新<span class="newicon">NEW</span></dd>
-<dt>2023/07/12</dt>
-<dd>第７・８・９・１２回活動内容修正更新</dd>
-<dt>2023/07/12</dt>
-<dd>第４・５・６・７・８・９・１０・１１・１２・１３回活動内容修正更新</dd>
-<dt>2023/07/11</dt>
-<dd>第１３回活動内容更新</dd>
-<dt>2023/07/08</dt>
-<dd>第４・５・６・７・８・９・１０・１１・１２回活動内容修正更新</dd>
-<dt>2023/07/06</dt>
-<dd>第１２回活動内容更新</dd>
-<dt>2023/06/29</dt>
-<dd>第１１回活動内容更新</dd>
-<dt>2023/06/22</dt>
-<dd>第１０回活動内容更新</dd>
-<dt>2023/06/15</dt>
-<dd>第９回活動内容更新</dd>
-<dt>2023/06/08</dt>
-<dd>第８回活動内容更新</dd>
-<dt>2023/06/01</dt>
-<dd>第７回活動内容更新</dd>
-<dt>2023/05/19</dt>
-<dd>第６回活動内容更新</dd>
-<dt>2023/05/18</dt>
-<dd>第５回活動内容更新</dd>
-<dt>2023/05/12</dt>
-<dd>第４回活動内容更新</dd>
-<dt>2023/04/26</dt>
-<dd>第２回・第３回活動内容更新</dd>
-<dt>2023/04/25</dt>
-<dd>第１回活動内容更新</dd>
-<dt>2023/04/21</dt>
-<dd>HP改良編集</dd>
-<dt>2023/04/20</dt>
-<dd>HP改良編集</dd>
-<dt>2023/04/19</dt>
-<dd>HP改良編集</dd>
-<dt>2023/04/14</dt>
-<dd>HP改良編集</dd>
-</dl>
+<figure class="c mb30">
+<img src="images/sample1_big.jpg" alt="写真の説明を入れます">
+</figure>
 
-</section>
-<!--/#new-->
+<table class="ta1">
+<caption>2023/05/26～</caption>
+<tr>
+    <tr>
+    <th>アクリル染め講習会</th>
+    <td>
+        <img src="images/アクリルアワード５月下旬から６月上旬/S__97288212.jpg" width="45%">
+        <img src="images/アクリルアワード５月下旬から６月上旬/S__97288214.jpg" width="45%">
+
+    </td>
+    </tr>
+    
+    <tr>
+        <th>手順</th>
+        <td>
+        １，70度ほどのお湯を容易<br>
+        ２，使いたい色を容器に移す<br>
+        ３，染める<br>
+        ４，染物を液体から上げ水の入った容器ですすぐ<br>
+        ５，染物をふき取る（※水が付いた状態で液体に付けない。必ず水気をとる）<br>
+        ６，染が足りない場合、再度液体に付ける（必要ならば４と５と６の手順を繰り返す）<br>
+        ７，染が終われば中性洗剤入りの水の入った容器で洗う<br>
+        ８，完成<br>
+        </td>
+    </tr>
+    
+    <tr>
+        <th>アクリルデザイン「カトラリー」作成</th>
+        <td>
+            「カトラリー」を作成<br>
+            イラレでナイフとフォークのカトラリーをイラストし、<br>
+            レーザー加工機でアクリル板をカットする。<br>
+            そして、カットされたものをヒートガンで曲げる。<br>
+            曲げたものを（青に）染色する。<br>
+        </td>
+    </tr>
+
+    <tr>
+        <th>作業途中染色</th>
+        <td>
+            <img src="images/アクリルアワード５月下旬から６月上旬/S__97288215.jpg" width="45%">
+            <img src="images/アクリルアワード５月下旬から６月上旬/S__97288216.jpg" width="45%">
+        </td>
+    </tr>
+    
+    
+</table>
+
+</article>
+
+<p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
 
 <footer>
 <small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>
@@ -163,14 +162,6 @@
 
 </div>
 <!--/#contents-->
-
-<!--スライドショー-->
-<aside id="mainimg">
-<div class="slide0">slide0</div>
-<div class="slide1">slide1</div>
-<div class="slide2">slide2</div>
-<div class="slide3">slide3</div>
-</aside>
 
 </div>
 <!--/#container-->
