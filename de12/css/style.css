@@ -4,14 +4,14 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
 /* フォントを指定したいところで */
 
-logo img{
+ img{
     border-radius: 50%;
     width: 150px;
     height: 150px;
     object-fit: cover; /* 画像のトリミング */
 }
 
-logotohome img{
+tohome img{
     border-radius: 70%;
     width: 70px;
     height: 70px;

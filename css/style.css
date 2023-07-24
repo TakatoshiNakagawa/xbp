@@ -202,10 +202,7 @@ header:hover #menubar li a span {
 .menu10 a {
 	background-position: 20px -100px;	/*背景画像の左から20px、上から-220px（上のmenu1の-160からアイコンの高さ分の60をずらした）の部分を読み込む指定*/
 }
-/*menu11*/
-.menu5 a {
-	background-position: 20px -100px;	/*背景画像の左から20px、上から-220px（上のmenu1の-160からアイコンの高さ分の60をずらした）の部分を読み込む指定*/
-}
+
 /*スマホ用メニューを表示させない*/
 #menubar-s {display: none;}
 /*３本バーアイコンを表示させない*/
@@ -614,13 +611,33 @@ header.sh .logo {
 .menu3 a {
 	background-position: 20px -120px;
 }
-/*menu4*/
+/*menu4       background-position: 20px -180px;*/
 .menu4 a {
-	background-position: 20px -180px;
+	background-position: 20px -120px;
 }
-/*menu5*/
+/*menu5       background-position: 20px -240px;*/
 .menu5 a {
-	background-position: 20px -240px;
+	background-position: 20px -120px;
+}
+/*men6*/
+.menu6 a {
+	background-position: 20px -120px;
+}
+/*menu7       background-position: 20px -180px;*/
+.menu7 a {
+	background-position: 20px -120px;
+}
+/*menu8       background-position: 20px -240px;*/
+.menu8 a {
+	background-position: 20px -120px;
+}
+/*menu9       background-position: 20px -180px;*/
+.menu9 a {
+	background-position: 20px -120px;
+}
+/*menu10       background-position: 20px -240px;*/
+.menu10 a {
+	background-position: 20px -120px;
 }
 /*PC用メニューを非表示にする*/
 #menubar {display: none;}

@@ -51,7 +51,7 @@
 }
 /*土台画像*/
 .slide0 {
-	background: #4f595c url(../images/doyolab.ico) no-repeat center 20%/auto 40%;
+	background: #4f595c url(/xbp/images/0_XBlogo.png) no-repeat center 20%/auto 40%;
 	position: relative;width: 100%;height: 100%;
 }
 /*１枚目*/
@@ -75,9 +75,6 @@
 /*画面の高さが500px以下の場合の設定。
 ------------------------------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-height:500px){
-
 /*土台画像。Whats's Newブロックと重なるので非表示にしました*/
-.slide0 {
-	background-image: none;
-
+.slide0 {background-image: none;}
 }
