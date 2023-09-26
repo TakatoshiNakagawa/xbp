@@ -23,8 +23,7 @@
 <![endif]-->
 </head>
 
-
-<body class="contact">
+<body class="works">
 
 <div id="container">
 
@@ -40,11 +39,10 @@
 	<li class="menuimg menu2"><a href="subject.html"><span>Subject</span></a></li>
 	<li class="menuimg menu3"><a href="works2.html"><span>works2</span></a></li>
 	<li class="menuimg menu3"><a href="works1.html"><span>Works1</span></a></li>
-	<li class="menuimg menu4"><a href="note.html"><span>note</span></a></li>
-
+	<li class="menuimg menu4 current"><a href="note.html"><span>note</span></a></li>
 	<!--
 	<li class="menuimg menu4"><a href="link.html"><span>Links</span></a></li>
-	<li class="menuimg menu5 current"><a href="contact.html"><span>Contact</span></a></li>
+	<li class="menuimg menu5"><a href="contact.html"><span>Contact</span></a></li>
 	-->
 	</ul>
 	</nav>
@@ -56,6 +54,7 @@
 	<li><a href="#"><img src="images/icon_youtube.png" alt="YouTube"></a></li>
 	</ul>
 	-->
+
 </header>
 <!--/.pc-->
 
@@ -72,11 +71,10 @@
 	<li class="menuimg menu2"><a href="subject.html"><span>Subject</span></a></li>
 	<li class="menuimg menu3"><a href="works2.html"><span>works2</span></a></li>
 	<li class="menuimg menu3"><a href="works1.html"><span>Works1</span></a></li>
-	<li class="menuimg menu4"><a href="note.html"><span>note</span></a></li>
-
+	<li class="menuimg menu4 current"><a href="note.html"><span>note</span></a></li>
 	<!--
 	<li class="menuimg menu4"><a href="link.html"><span>Links</span></a></li>
-	<li class="menuimg menu5 current"><a href="contact.html"><span>Contact</span></a></li>
+	<li class="menuimg menu5"><a href="contact.html"><span>Contact</span></a></li>
 	-->
 	</ul>
 	</nav>
@@ -98,47 +96,100 @@
 
 <div id="main">
 
-<section id="pagetop">
+<article id="pagetop">
 
-<h2 class="title">CONTACT<span>お問い合わせフォーム</span></h2>
+<h2 class="title">Subject<span>活動内容</span></h2>
 
-<!-- フォームの情報はここからです -->
-<form name="form1" enctype="multipart/form-data" method="post" action="<?php echo $_SERVER["REQUEST_URI"];?>">
-<input type="hidden" name="mode" value="form">
+<figure class="c mb30">
+<img src="images/sample1_big.jpg" alt="写真の説明を入れます">
+</figure>
+
 <table class="ta1">
-<!-- 入力／確認 -->
-<!--<tr><th class="tamidashi" colspan="2">お問い合わせフォーム</th></tr>-->
+<caption>2023/05/19～</caption>
 <tr>
-<th width="150">お名前<span style="color:red">※</span></th>
-<td>
-<input name="item1" value="<?php echo $form["item1"];?>" type="text" size="40" maxlength="500" class="ws">
-<?php if ($msg["item1"]) echo '<div style="color:red">' . $msg["item1"] . '</div>'; ?>
-</td>
-</tr>
-<tr>
-<th width="150">メールアドレス<span style="color:red">※</span></th>
-<td>
-<input name="item2" value="<?php echo $form["item2"];?>" type="text" size="40" maxlength="500" class="ws">
-<?php if ($msg["item2"]) echo '<div style="color:red">' . $msg["item2"] . '</div>'; ?>
-</td>
-</tr>
-<tr>
-<th>お問い合わせ内容<span style="color:red">※</span></th>
-<td>
-<textarea name="item3" cols="40" rows="10" class="wl"><?php echo $form["item3"]; ?></textarea>
-<?php if ($msg["item3"]) echo '<div style="color:red">' . $msg["item3"] . '</div>'; ?>
-</td>
-</tr>
-</table>
-<div class="c">
-<input type="submit" value="内容を確認する" class="btn">
-&nbsp;
-<input type="reset" value="リセット" class="btn">
-</div>
-</form>
-<!-- フォームの情報はここまでです -->
+<th>ポータブルゴミ箱</th>
+<td>メンバー：あづま・すぎの・なかがわ（五十音順）
 
-</section>
+</td>
+</tr>
+
+<tr>
+<th>背景・悩み</th>
+<td>鎌倉は観光地でゴミのポイ捨てが多い<br>
+	鎌倉市内にゴミ箱がないので捨てられない<br>
+</td>
+</tr>
+
+<tr>
+<th>必要技術（予想）</th>
+<td>３DPのPLAで試作<br>
+	必要に応じて１００均などで金具<br>
+</td>
+</tr>
+
+<tr>
+<th>ごみをポイ捨てる心理とは？</th>
+<td>ごみ箱がない？<br>
+	捨てる場所がない？<br>
+	ポイ捨てすることに抵抗がない？<br>
+	自身では気づかずうっかり落としてしまっている。<br>
+</td>
+</tr>
+
+<tr>
+<th>利用する人とは？</th>
+	<td>まめな人？<br>
+		ポイ捨てすることに抵抗がある？<br>
+	</td>
+	</tr>
+
+<tr>
+<th>どのようなモノにする？</th>
+	<td>携帯できる<br>
+		小さく<br>
+		軽く<br>
+		持ち歩くのに便利な大きさ<br>
+		小さなカバンでも入るような大きさ（スマホぐらい？）<br>
+		　ペットボトルよりかは小さく<br>
+	</td>
+	</tr>
+
+<tr>
+	<th>アイディア</th>
+	<td>１，袋を収納して取り出せるような携帯型のごみ箱<br>
+		　　袋を入れる手間、取り出す手間を抑える<br>
+		２，袋の出入り口を挟む、摘まむ<br>
+
+		１と２共通してどのような袋の形状でも使えるものにする。（ポリ袋、コンビニ袋など）<br>
+
+	</td>
+	</tr>
+
+<tr>
+<th>アイディアヒント</th>
+	<td>携帯灰皿<br>
+		携帯用衣類クリーナー（約直径２．６×高さ１１．５ｃｍ）<br>
+	</td>
+	</tr>
+
+<tr>
+<th>大まかな役割分担</th>
+	<td>１，ごみ袋収納　（あづま・なかがわ）<br>
+		２，ごみ袋止め　（すぎの）<br>
+	</td>
+	</tr>
+
+<tr>
+	<th>イメージ</th>
+		<td>
+			<img src="images/ごみ箱写真/S__96657436.jpg" width="45%">	
+		</td>
+		</tr>
+</table>
+
+</article>
+
+<p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
 
 <footer>
 <small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>

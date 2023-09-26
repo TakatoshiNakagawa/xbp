@@ -23,8 +23,7 @@
 <![endif]-->
 </head>
 
-
-<body class="contact">
+<body class="works">
 
 <div id="container">
 
@@ -40,11 +39,10 @@
 	<li class="menuimg menu2"><a href="subject.html"><span>Subject</span></a></li>
 	<li class="menuimg menu3"><a href="works2.html"><span>works2</span></a></li>
 	<li class="menuimg menu3"><a href="works1.html"><span>Works1</span></a></li>
-	<li class="menuimg menu4"><a href="note.html"><span>note</span></a></li>
-
+	<li class="menuimg menu4 current"><a href="note.html"><span>note</span></a></li>
 	<!--
 	<li class="menuimg menu4"><a href="link.html"><span>Links</span></a></li>
-	<li class="menuimg menu5 current"><a href="contact.html"><span>Contact</span></a></li>
+	<li class="menuimg menu5"><a href="contact.html"><span>Contact</span></a></li>
 	-->
 	</ul>
 	</nav>
@@ -56,6 +54,7 @@
 	<li><a href="#"><img src="images/icon_youtube.png" alt="YouTube"></a></li>
 	</ul>
 	-->
+
 </header>
 <!--/.pc-->
 
@@ -72,11 +71,10 @@
 	<li class="menuimg menu2"><a href="subject.html"><span>Subject</span></a></li>
 	<li class="menuimg menu3"><a href="works2.html"><span>works2</span></a></li>
 	<li class="menuimg menu3"><a href="works1.html"><span>Works1</span></a></li>
-	<li class="menuimg menu4"><a href="note.html"><span>note</span></a></li>
-
+	<li class="menuimg menu4 current"><a href="note.html"><span>note</span></a></li>
 	<!--
 	<li class="menuimg menu4"><a href="link.html"><span>Links</span></a></li>
-	<li class="menuimg menu5 current"><a href="contact.html"><span>Contact</span></a></li>
+	<li class="menuimg menu5"><a href="contact.html"><span>Contact</span></a></li>
 	-->
 	</ul>
 	</nav>
@@ -98,47 +96,85 @@
 
 <div id="main">
 
-<section id="pagetop">
+<article id="pagetop">
 
-<h2 class="title">CONTACT<span>お問い合わせフォーム</span></h2>
+<h2 class="title">Subject<span>活動内容</span></h2>
 
-<!-- フォームの情報はここからです -->
-<form name="form1" enctype="multipart/form-data" method="post" action="<?php echo $_SERVER["REQUEST_URI"];?>">
-<input type="hidden" name="mode" value="form">
+<figure class="c mb30">
+<img src="images/sample1_big.jpg" alt="写真の説明を入れます">
+</figure>
+
 <table class="ta1">
-<!-- 入力／確認 -->
-<!--<tr><th class="tamidashi" colspan="2">お問い合わせフォーム</th></tr>-->
+<caption>2023/04/28～</caption>
 <tr>
-<th width="150">お名前<span style="color:red">※</span></th>
-<td>
-<input name="item1" value="<?php echo $form["item1"];?>" type="text" size="40" maxlength="500" class="ws">
-<?php if ($msg["item1"]) echo '<div style="color:red">' . $msg["item1"] . '</div>'; ?>
-</td>
+<th>鎌倉プロジェクト</th>
+<td>8月・9月かにプロトタイプしたものを発表<br>
+	インタビューした人も来る<br>
+	予備日含めて3日間<br>
+	終期始まるぐらい<br>
+	希望時間　14：00～<br>
+	候補日<br>
+	９/16　４　決定<br>
+	23　１<br>
+	30　２<br>
+	10/07　３<br>
+	</td>
 </tr>
 <tr>
-<th width="150">メールアドレス<span style="color:red">※</span></th>
-<td>
-<input name="item2" value="<?php echo $form["item2"];?>" type="text" size="40" maxlength="500" class="ws">
-<?php if ($msg["item2"]) echo '<div style="color:red">' . $msg["item2"] . '</div>'; ?>
-</td>
+<th>解決手段（学生ができること）</th>
+<td>３Dプリンター<br>
+	レーザー　機材<br>
+	CNC　ショップbot<br>
+	UV<br>
+	IOT
+	</td>
 </tr>
 <tr>
-<th>お問い合わせ内容<span style="color:red">※</span></th>
-<td>
-<textarea name="item3" cols="40" rows="10" class="wl"><?php echo $form["item3"]; ?></textarea>
-<?php if ($msg["item3"]) echo '<div style="color:red">' . $msg["item3"] . '</div>'; ?>
-</td>
+<th>話し合いの際の持ち物</th>
+<td>３Dの動画　　道用<br>
+	鎌倉にある３D品　　学生<br>
+	TPU素材持っていく　（やわらかい素材）　　学生<br>
+	キーホルダー（レーザー・UV）　　学生<br>
+	服部の寝床　　道用<br>
+	レシート　　道用<br>
+	IoT　　道用<br>
+	</td>
+</tr>
+<tr>
+<th>説明</th>
+<td>機械の説明（動画で）は道用先生が説明する　IOTの説明も先生がする<br>
+	モノの説明はみんなで（学生）で各グループ説明する<br>
+	</td>
+</tr>
+<tr>
+<th>マインド</th>
+<td>つくれなくてもいい、完成しなくてもいい<br>
+	ただ経過過程は発表できるようにしておく<br>
+	
+	
+	</td>
+</tr>
+<tr>
+<th>予定</th>
+<td>6月中にはプロトタイプを完成しておく<br>
+	沢山、プロトタイピングを繰り返す<br>
+	5/12のゼミの時間は鎌倉前の話し合いはなし<br>
+	個人プロジェクトをしている人はそっちをやる<br>
+	各々課題を見つけて行う　班長がマネジメントする<br>
+	忘れ物が無いように班長がマネジメントしておく<br>
+
+	</td>
+</tr>
+<tr>
+<th>鎌倉インタビュー後の班内で集まる日</th>
+<td>毎週、金曜日<br>
+	</td>
 </tr>
 </table>
-<div class="c">
-<input type="submit" value="内容を確認する" class="btn">
-&nbsp;
-<input type="reset" value="リセット" class="btn">
-</div>
-</form>
-<!-- フォームの情報はここまでです -->
 
-</section>
+</article>
+
+<p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
 
 <footer>
 <small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>

@@ -23,15 +23,14 @@
 <![endif]-->
 </head>
 
-
-<body class="contact">
+<body class="works">
 
 <div id="container">
 
 <!--PC用（801px以上端末）で表示させるブロック-->
 <header class="pc">
 
-	<h1 class="logo"><a href="index.html"><img src="images/doyolab.ico" alt="doyolab.ico"></a></h1>
+	<h1 class=""><a href="index.html"><img src="images/doyolab.ico" alt="doyolab.ico"></a></h1>
 
 	<!--PC用（801px以上端末）メニュー-->
 	<nav id="menubar">
@@ -40,11 +39,10 @@
 	<li class="menuimg menu2"><a href="subject.html"><span>Subject</span></a></li>
 	<li class="menuimg menu3"><a href="works2.html"><span>works2</span></a></li>
 	<li class="menuimg menu3"><a href="works1.html"><span>Works1</span></a></li>
-	<li class="menuimg menu4"><a href="note.html"><span>note</span></a></li>
-
+	<li class="menuimg menu4 current"><a href="note.html"><span>note</span></a></li>
 	<!--
 	<li class="menuimg menu4"><a href="link.html"><span>Links</span></a></li>
-	<li class="menuimg menu5 current"><a href="contact.html"><span>Contact</span></a></li>
+	<li class="menuimg menu5"><a href="contact.html"><span>Contact</span></a></li>
 	-->
 	</ul>
 	</nav>
@@ -56,13 +54,14 @@
 	<li><a href="#"><img src="images/icon_youtube.png" alt="YouTube"></a></li>
 	</ul>
 	-->
+
 </header>
 <!--/.pc-->
 
 <!--小さな端末用（800px以下端末）で表示させるブロック-->
 <header class="sh">
 
-	<h1 class="logo"><a href="index.html"><img src="images/doyolab.ico" alt="doyolab.ico"></a></h1>
+	<h1 class=""><a href="index.html"><img src="images/doyolab.ico" alt="doyolab.ico"></a></h1>
 
 	<!--小さな端末用（800px以下端末）メニュー-->
 	<div id="menubar-s">
@@ -72,11 +71,10 @@
 	<li class="menuimg menu2"><a href="subject.html"><span>Subject</span></a></li>
 	<li class="menuimg menu3"><a href="works2.html"><span>works2</span></a></li>
 	<li class="menuimg menu3"><a href="works1.html"><span>Works1</span></a></li>
-	<li class="menuimg menu4"><a href="note.html"><span>note</span></a></li>
-
+	<li class="menuimg menu4 current"><a href="note.html"><span>note</span></a></li>
 	<!--
 	<li class="menuimg menu4"><a href="link.html"><span>Links</span></a></li>
-	<li class="menuimg menu5 current"><a href="contact.html"><span>Contact</span></a></li>
+	<li class="menuimg menu5"><a href="contact.html"><span>Contact</span></a></li>
 	-->
 	</ul>
 	</nav>
@@ -98,47 +96,60 @@
 
 <div id="main">
 
-<section id="pagetop">
+<article id="pagetop">
 
-<h2 class="title">CONTACT<span>お問い合わせフォーム</span></h2>
+<h2 class="title">Subject<span>活動内容</span></h2>
 
-<!-- フォームの情報はここからです -->
-<form name="form1" enctype="multipart/form-data" method="post" action="<?php echo $_SERVER["REQUEST_URI"];?>">
-<input type="hidden" name="mode" value="form">
+<figure class="c mb30">
+<img src="images/sample1_big.jpg" alt="写真の説明を入れます">
+</figure>
+
 <table class="ta1">
-<!-- 入力／確認 -->
-<!--<tr><th class="tamidashi" colspan="2">お問い合わせフォーム</th></tr>-->
+<caption>2023/07/14～</caption>
 <tr>
-<th width="150">お名前<span style="color:red">※</span></th>
-<td>
-<input name="item1" value="<?php echo $form["item1"];?>" type="text" size="40" maxlength="500" class="ws">
-<?php if ($msg["item1"]) echo '<div style="color:red">' . $msg["item1"] . '</div>'; ?>
-</td>
+<th>完成紹介動画</th>
+<td><a href="https://youtu.be/gqPYdHQcTXE" target="_blank">「ポタブル」紹介動画</a><br></td>
 </tr>
-<tr>
-<th width="150">メールアドレス<span style="color:red">※</span></th>
-<td>
-<input name="item2" value="<?php echo $form["item2"];?>" type="text" size="40" maxlength="500" class="ws">
-<?php if ($msg["item2"]) echo '<div style="color:red">' . $msg["item2"] . '</div>'; ?>
-</td>
-</tr>
-<tr>
-<th>お問い合わせ内容<span style="color:red">※</span></th>
-<td>
-<textarea name="item3" cols="40" rows="10" class="wl"><?php echo $form["item3"]; ?></textarea>
-<?php if ($msg["item3"]) echo '<div style="color:red">' . $msg["item3"] . '</div>'; ?>
-</td>
-</tr>
-</table>
-<div class="c">
-<input type="submit" value="内容を確認する" class="btn">
-&nbsp;
-<input type="reset" value="リセット" class="btn">
-</div>
-</form>
-<!-- フォームの情報はここまでです -->
 
-</section>
+<th>Fusion 360　設計</th>
+<td><a href="/xbp/doyolab/gomibako/GOMIBAKO14-0714-1 (v2~recovered).stl" target="_blank">STLファイル1</a><br>
+<a href="/xbp/doyolab/gomibako/GOMIBAKO14-1 0714 v1.stl" target="_blank">STLファイル２（STLファイル1から改良版）</a><br></td>
+
+</tr>
+
+<tr>
+<th>プリント結果</th>
+<td>
+	<img src="images/ごみ箱写真/S__97288203.jpg" width="45%">
+	<img src="images/ごみ箱写真/S__97288204.jpg" width="45%">
+	<img src="images/ごみ箱写真/S__97288205.jpg" width="45%">
+</td>
+</tr>
+
+<tr>
+	<th>結果からの考察</th>
+	<td>
+	おにぎりケース<br>
+	良い点<br>
+	　以前に比べてヒンジの部分が力強く丈夫になった<br>
+	　穴を付けたことによって持ち運びの際のボールチェーンをつけることができそう<br>
+	悪い点<br>
+	　色が欲しい
+	</td>
+</tr>
+
+<tr>
+	<th>考察から次は</th>
+	<td>
+		色をつけてアートにする。<br>
+	</td>
+</tr>
+
+</table>
+
+</article>
+
+<p><a href="javascript:history.back()">&lt;&lt; 前のページに戻る</a></p>
 
 <footer>
 <small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>
